@@ -1,0 +1,3 @@
+# CoinbasePro-Trading-Bot
+
+https://dev.to/itstayfay/building-a-crypto-trading-bot-in-python-101-automatic-deposits-on-coinbase-pro-dnd
