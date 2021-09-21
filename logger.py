@@ -1,14 +1,15 @@
-from config import AWS_ACESS_KEY_ID, AWS_SECRET_ACESS_KEY, BUCKET_FILE_NAME
+from config import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, BUCKET_FILE_NAME
 from datetime import datetime
 import logging
-import boto3    # this package helps to acess AWS via Python
+import boto3    # this package helps to acess AWS resource via Python
 
 
+
+bucket_file_name = BUCKET_FILE_NAME
 s3_client = boto3.client(
     's3',
-    aws_access_key_id = AWS_ACESS_KEY_ID,
-    aws_secret_acess_key = AWS_SECRET_ACESS_KEY,
-    bucket_file_name = BUCKET_FILE_NAME,
+    aws_access_key_id = AWS_ACCESS_KEY_ID,
+    aws_secret_access_key = AWS_SECRET_ACCESS_KEY,
     region_name = 'us-east-2'
 )
 
@@ -35,8 +36,9 @@ def upload_log(logger):
     file_name = logger.handlers[0].baseFilename
     directory = datetime.now().date().isoformat()
     key = '{}/{}'.format(directory, file_name.split('/')[-1])
+    
     bucket_name = BUCKET_FILE_NAME
-    s3_client.upload_file(Filename = file_name, Bucket = bucket_name, key=key)
+    s3_client.upload_file(Filename = file_name, Bucket = bucket_name, Key=key)
     
 
 # This is a decorator func that creates a logger, then passes it to the function and uploads the log file when it finishes.
