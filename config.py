@@ -10,3 +10,7 @@ CB_CREDENTIALS = {
     'KEY': os.getenv('CB_KEY'),
     'URL': os.getenv('CB_URL')
 }
+
+AWS_ACESS_KEY_ID = os.getenv('AWS_ACESS_KEY_ID')
+AWS_SECRET_ACESS_KEY = os.getenv('AWS_SECRET_ACESS_KEY')
+BUCKET_FILE_NAME = os.getenv('BUCKET_FILE_NAME')
