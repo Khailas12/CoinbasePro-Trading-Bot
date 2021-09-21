@@ -1,5 +1,4 @@
 from cbpro_cl import cbpro_client
-from flask import Flask
 
 
 @cbpro_client
@@ -39,6 +38,7 @@ def get_deposit_account(cbpro_client):
     for account in bank_accounts:
         if account['type'] == 'ach_bank_account':
             return account
+        
         
 @cbpro_client
 def deposit_funds(cbpro_client, deposit_amount = 10):   # default deposit amount is $10
