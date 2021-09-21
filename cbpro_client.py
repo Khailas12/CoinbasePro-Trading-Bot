@@ -9,8 +9,10 @@ def get_client(credentials):
         credentials['KEY'],
         credentials['SECRET'],
         credentials['PASSPHRASE'],
-        api_urk=credentials['URL']
+        api_url=credentials['URL']
         )
+    return cbpro_client
+
 
 def cbpro_client(func):
     def function_wrapper(*args, **kwargs):

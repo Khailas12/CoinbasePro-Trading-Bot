@@ -1,4 +1,4 @@
-from cbpro_cl import cbpro_client
+from cbpro_client import cbpro_client
 
 
 @cbpro_client
