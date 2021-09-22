@@ -5,13 +5,14 @@ import boto3    # this package helps to acess AWS resource via Python
 
 
 
-bucket_file_name = BUCKET_FILE_NAME
 s3_client = boto3.client(
     's3',
     aws_access_key_id = AWS_ACCESS_KEY_ID,
     aws_secret_access_key = AWS_SECRET_ACCESS_KEY,
     region_name = 'us-east-2'
 )
+
+bucket_file_name = BUCKET_FILE_NAME
 
 
 # Creates a logger with a FIileHandler.
