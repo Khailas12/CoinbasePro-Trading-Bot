@@ -3,7 +3,7 @@ from config import CB_CREDENTIALS
 
 
 def get_client(credentials):
-    'Returns the cbpto AuthenticatedClent using credentials from parameters dict'
+    'Returns the cbpro AuthenticatedClent using credentials from parameters dict'
     
     cbpro_client = cbpro.AuthenticatedClient(
         credentials['KEY'],
