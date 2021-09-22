@@ -20,7 +20,7 @@ def create_logger(logger_name):
     logger.setLevel(logging.DEBUG)
     
     # Creating file handler with log even debug msgs
-    file_handler = logging.FileHandler('{}_{}.log'.format(logger_name, datetime.now().isoformat().split('.')[0]))
+    file_handler = logging.FileHandler('{}_{}.log'.format(logger_name, datetime.now().isoformat().split('.')[1]))
     file_handler.setLevel(logging.DEBUG)
     
     # Creating the file handler and adding tp handlers
@@ -44,9 +44,13 @@ def upload_log(logger):
 # This is a decorator func that creates a logger, then passes it to the function and uploads the log file when it finishes.
 def logger(func):
     def function_wrapper(*args, **kwargs):
+        
         function_name = func.__name__
         logger = create_logger(function_name)
-        logger.info('Now Running - {}'.format(function_name))
+        try:
+            logger.info('Now Running - {}'.format(function_name))
+        except:
+            AttributeError
         
         resp = func(logger = logger, *args, **kwargs)
         upload_log(logger)

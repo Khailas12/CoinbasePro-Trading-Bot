@@ -57,7 +57,7 @@ def deposit_funds(cbpro_client, deposit_amount = 10):   # default deposit amount
         }
     """
     
-    logger.info('Gettng account ID')
+    logging.info('Gettng account ID')
     deposit_account_id = get_deposit_account()['id']
     logger.info('Account ID: {}'.format(deposit_account_id))
     

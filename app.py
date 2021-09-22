@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from deposit_fund import deposit_funds
+from deposit_funds import deposit_funds
 
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ def func():
     return jsonify({'message': 'Func'})
 
 
-@app.route('/deposit', methods=['GET'])
+@app.route("/deposit", methods = ['GET'])
 def deposit_func():
     resp = deposit_funds()
     return jsonify(resp)
