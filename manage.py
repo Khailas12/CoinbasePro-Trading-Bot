@@ -5,4 +5,4 @@ from app import app
 
 manager = Manager(app)
 def make_deposit():
-    deposit_funds
+    deposit_funds()
