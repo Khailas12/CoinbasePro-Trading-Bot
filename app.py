@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from deposit_funds import deposit_funds
+from deposits import deposit_funds
 
 
 app = Flask(__name__)
