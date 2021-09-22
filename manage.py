@@ -1,4 +1,4 @@
-from deposit_funds import deposit_funds
+from deposits import deposit_funds
 from flask_script import Manager
 from app import app
 
