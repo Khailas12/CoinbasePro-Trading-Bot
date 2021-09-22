@@ -45,11 +45,10 @@ def upload_log(logger):
 # This is a decorator func that creates a logger, then passes it to the function and uploads the log file when it finishes.
 def logger(func):
     def function_wrapper(*args, **kwargs):
-        
         function_name = func.__name__
         log = create_logger(function_name)
         
-        logger.info('Now Running - {}'.format(function_name))
+        logger.info("Now Running - {}".format(function_name))
 
         resp = func(logger = log, *args, **kwargs)
         upload_log(logger)
