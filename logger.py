@@ -15,13 +15,13 @@ s3_client = boto3.client(
 bucket_file_name = BUCKET_FILE_NAME
 
 
-# Creates a logger with a FIileHandler.
+# Creates a logger with a FileHandler.
 def create_logger(logger_name):
     logger = logging.getLogger(logger_name)
     logger.setLevel(logging.DEBUG)
     
     # Creating file handler with log even debug msgs
-    file_handler = logging.FileHandler('{}_{}.log'.format(logger_name, datetime.now().isoformat().split('.')[1]))
+    file_handler = logging.FileHandler('{}_{}.log'.format(logger_name, datetime.now().isoformat().split('.')[-1]))
     file_handler.setLevel(logging.DEBUG)
     
     # Creating the file handler and adding tp handlers
@@ -47,13 +47,11 @@ def logger(func):
     def function_wrapper(*args, **kwargs):
         
         function_name = func.__name__
-        logger = create_logger(function_name)
-        try:
-            logger.info('Now Running - {}'.format(function_name))
-        except:
-            AttributeError
+        log = create_logger(function_name)
         
-        resp = func(logger = logger, *args, **kwargs)
+        logger.info('Now Running - {}'.format(function_name))
+
+        resp = func(logger = log, *args, **kwargs)
         upload_log(logger)
         
         return resp

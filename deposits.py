@@ -41,7 +41,7 @@ def get_deposit_account(cbpro_client):
             return account
         
         
-@logger   
+@logger  
 @cbpro_client
 def deposit_funds(cbpro_client, deposit_amount = 10):   # default deposit amount is $10
     """ Makes deposit into USD Wallet
